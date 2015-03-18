@@ -1,0 +1,33 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title>ajax 测试</title>
+	<link rel="stylesheet" type="text/css" href="/css/container.css">
+</head>
+<body>
+
+<script src="js/lib/jquery-2.1.3.js"></script>
+<script>
+
+
+$(function(){  
+var result;
+result=$.ajax(  
+    {  
+        type:'get',  
+        url : 'http://192.168.1.128:8099/remen/getLinkDetail?categorizeId=6',  
+        dataType : 'jsonp',  
+        jsonp:"jsoncallback",  
+        success  : function(data) {  
+            alert("用户名："+ data.user +" 密码："+ data.pass);  
+        },  
+        error : function(data) {  
+            alert('fail'+data.status +data.toString() );  
+        }  
+    }  
+);  
+})  
+</script>
+</body>		
+</html>
